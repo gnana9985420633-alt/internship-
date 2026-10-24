@@ -1,11 +1,10 @@
-# OS files
+node_modules/
+data.sqlite
+data.sqlite-shm
+data.sqlite-wal
+.env
 .DS_Store
 Thumbs.db
-desktop.ini
-
-# Editor settings
 .vscode/
 .idea/
-
-# Logs
 *.log

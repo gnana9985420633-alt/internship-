@@ -1,73 +1,111 @@
-# Web Development Internship Project
+# TaskFlow — Full-Stack Internship Project
 
-A beginner-friendly, responsive portfolio-style website created with **HTML5, CSS3 and vanilla JavaScript**. It is based on the technology stack and learning topics described in the internship report.
+TaskFlow is a working task-management web application that demonstrates frontend development, backend APIs, data persistence, validation and basic application security.
+
+## Technology stack
+
+- **Frontend:** HTML5, CSS3, vanilla JavaScript
+- **Backend:** Node.js built-in HTTP server
+- **Database:** SQLite through Node's built-in `node:sqlite` module
+- **API:** JSON REST-style endpoints
+- **Version control:** Git and GitHub
+
+> **Requirements:** Use Node.js 22.13+ (or a current Node.js release that supports `node:sqlite`). No `npm install` is needed because this project uses built-in Node.js modules only.
 
 ## Features
 
-- Responsive layout for mobile, tablet and desktop
-- Semantic HTML sections and accessible navigation
-- Mobile navigation menu
-- Project cards with category filters
-- Contact form validation using JavaScript
-- Current year in the footer
-- No build tools, dependencies or backend required
+- Create tasks with title, description, status and priority
+- Read tasks from a SQLite database
+- Edit task details
+- Delete tasks after confirmation
+- Mark tasks completed or cycle between statuses
+- Search tasks and filter by status/priority
+- Dashboard counters update from saved data
+- Input validation and safe HTML escaping
+- Connection status indicator and error messages
+- Responsive desktop and mobile layout
 
 ## Project structure
 
 ```text
-web-development-internship-project/
-├── index.html
-├── style.css
-├── script.js
+apexplanet-live-internship-project/
+├── package.json
+├── server.js
 ├── README.md
-└── .gitignore
+└── public/
+    ├── index.html
+    ├── styles.css
+    └── app.js
 ```
 
 ## Run locally
 
-1. Download or clone this repository.
-2. Open `index.html` in a browser.
-3. For a better development workflow, open the folder in Visual Studio Code and use the Live Server extension if installed.
+1. Install Node.js 22.13 or newer: https://nodejs.org/
+2. Extract this project ZIP.
+3. Open the project folder in VS Code.
+4. Open a terminal in that folder.
+5. Run:
+
+```bash
+node --version
+npm start
+```
+
+6. Open http://localhost:3000 in your browser.
+7. Create a task, refresh the page and confirm the task is still there. This verifies database persistence.
+
+The SQLite database file `data.sqlite` is created automatically at runtime. It is intentionally not included in the repository.
+
+## API endpoints
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/health` | Check server status |
+| GET | `/api/tasks` | List tasks and dashboard counts |
+| POST | `/api/tasks` | Create a task |
+| PATCH | `/api/tasks/:id` | Update a task |
+| DELETE | `/api/tasks/:id` | Delete a task |
+
+Example create request:
+
+```bash
+curl -X POST http://localhost:3000/api/tasks \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"Test task\",\"description\":\"Check persistence\",\"priority\":\"high\"}"
+```
 
 ## Push to GitHub
 
-Create an **empty repository** on GitHub (do not add a README if you plan to push this folder as-is), then run these commands from this project folder:
+Create an empty repository at https://github.com/new, then from this project folder run:
 
 ```bash
 git init
 git add .
-git commit -m "Initial commit: web development internship project"
+git commit -m "Build TaskFlow full-stack internship project"
 git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 git push -u origin main
 ```
 
-Replace the URL with your own GitHub repository URL.
+Replace the placeholder GitHub URL with your own repository URL.
 
-If Git says a remote named `origin` already exists, use:
+## Deploying online
 
-```bash
-git remote set-url origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
-```
-
-## Deploy with GitHub Pages
-
-1. Push the project to GitHub.
-2. Open the repository's **Settings → Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Select branch `main` and folder `/(root)`, then save.
-5. Wait for GitHub Pages to publish the site; the URL will appear in the Pages settings.
+This app needs a Node.js server and a writable persistent disk for SQLite. **GitHub Pages alone cannot run the backend or database.** Deploy the Node.js app to a Node-compatible hosting service that supports persistent storage, set the start command to `npm start`, and configure a persistent disk/path for `data.sqlite` using the `DB_PATH` environment variable. Confirm the host's current Node.js version and persistent-disk support before deployment. If the hosting platform has ephemeral storage, tasks may disappear after redeploy/restart.
 
 ## Test checklist
 
-- [ ] Navigation links scroll to the correct sections.
-- [ ] Mobile menu opens and closes.
-- [ ] All / Design / JavaScript filters show the correct cards.
-- [ ] Empty or invalid contact form values show helpful errors.
-- [ ] Valid values show a success message.
-- [ ] Layout works at mobile, tablet and desktop widths.
+- [ ] Dashboard loads and shows API connection status.
+- [ ] Create a task with a title.
+- [ ] Refresh the browser; task remains saved.
+- [ ] Edit the title, description, status and priority.
+- [ ] Search for a task by title.
+- [ ] Filter by status and priority.
+- [ ] Mark a task completed.
+- [ ] Delete a task after confirmation.
+- [ ] Test the layout on mobile and desktop.
+- [ ] Stop the server and verify the UI displays a connection error; restart it and retry.
 
-## Important note
+## Limitations / production improvements
 
-The contact form is a **frontend demo only**. It does not send emails or store messages. Replace the sample email address and project content with your own details before presenting the project. Only describe features you have actually tested and understand.
+This is a functional learning project, not a production multi-user service. It has no login, roles, CSRF protection, rate limiting or multi-user isolation. Add authentication, authorization, backups, logging and production-grade security before storing real or sensitive data. Test all features in your own environment before describing them as verified.
