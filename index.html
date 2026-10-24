@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responsive web development internship portfolio project built with HTML, CSS and JavaScript.">
+  <title>Web Development Internship Project</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">Web<span>Dev</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="eyebrow">WEB DEVELOPMENT INTERNSHIP</p>
+        <h1>Building clean, responsive <span>web experiences.</span></h1>
+        <p class="hero-text">A simple portfolio-style project demonstrating HTML5, CSS3, JavaScript, responsive design and form validation.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore Projects</a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+        <div class="hero-note"><span class="status-dot"></span> Built with HTML, CSS & JavaScript</div>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">ABOUT THE PROJECT</p>
+        <h2>Learning by building</h2>
+        <p>This project brings core frontend concepts together in one easy-to-run website.</p>
+      </div>
+      <div class="about-grid">
+        <article class="info-card">
+          <div class="icon">⌘</div>
+          <h3>Semantic HTML</h3>
+          <p>Organized sections, accessible navigation and meaningful page structure.</p>
+        </article>
+        <article class="info-card">
+          <div class="icon">◈</div>
+          <h3>Responsive CSS</h3>
+          <p>Flexible layouts, reusable styles and mobile-friendly media queries.</p>
+        </article>
+        <article class="info-card">
+          <div class="icon">⚡</div>
+          <h3>JavaScript</h3>
+          <p>Interactive navigation, project filtering and contact form validation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">TECHNOLOGY STACK</p>
+          <h2>Skills demonstrated</h2>
+          <p>Frontend tools used to create this internship project.</p>
+        </div>
+        <div class="skill-list">
+          <div class="skill"><div class="skill-top"><span>HTML5</span><span>Structure</span></div><div class="skill-track"><span style="width: 90%"></span></div></div>
+          <div class="skill"><div class="skill-top"><span>CSS3</span><span>Design & responsiveness</span></div><div class="skill-track"><span style="width: 85%"></span></div></div>
+          <div class="skill"><div class="skill-top"><span>JavaScript</span><span>Interactivity</span></div><div class="skill-track"><span style="width: 75%"></span></div></div>
+          <div class="skill"><div class="skill-top"><span>Git & GitHub</span><span>Version control</span></div><div class="skill-track"><span style="width: 70%"></span></div></div>
+        </div>
+        <p class="small-note">The bars are illustrative project visuals, not formal skill assessments.</p>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>Project showcase</h2>
+        <p>Use the filter buttons to explore sample frontend project ideas.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="design">Design</button>
+        <button class="filter" data-filter="javascript">JavaScript</button>
+      </div>
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card" data-category="design">
+          <div class="project-art art-one"><span>01</span><div class="art-shape"></div></div>
+          <div class="project-copy"><p class="project-type">DESIGN · HTML & CSS</p><h3>Responsive Landing Page</h3><p>A clean landing page layout that adapts to mobile, tablet and desktop screens.</p><span class="tag">Responsive UI</span></div>
+        </article>
+        <article class="project-card" data-category="javascript">
+          <div class="project-art art-two"><span>02</span><div class="mini-window"><i></i><i></i><i></i><b>Interactive</b></div></div>
+          <div class="project-copy"><p class="project-type">JAVASCRIPT</p><h3>Task Tracker Concept</h3><p>A sample concept for practicing events, state updates and DOM manipulation.</p><span class="tag">DOM Events</span></div>
+        </article>
+        <article class="project-card" data-category="javascript">
+          <div class="project-art art-three"><span>03</span><div class="circle-chart">API</div></div>
+          <div class="project-copy"><p class="project-type">JAVASCRIPT · API</p><h3>Data Dashboard Concept</h3><p>A starting point for learning asynchronous requests and displaying data clearly.</p><span class="tag">Fetch API</span></div>
+        </article>
+      </div>
+      <p class="empty-state" id="emptyState" hidden>No projects match this filter.</p>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">GET IN TOUCH</p>
+          <h2>Let's connect.</h2>
+          <p class="contact-intro">Use this demo form to test client-side validation. It does not send or store messages.</p>
+          <div class="contact-detail"><span>✉</span><div><strong>Email</strong><p>your.email@example.com</p></div></div>
+          <div class="contact-detail"><span>⌖</span><div><strong>Focus</strong><p>Frontend web development</p></div></div>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your name" required minlength="2">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Write a short message..." required minlength="10"></textarea>
+          <button class="button primary submit-button" type="submit">Validate Message</button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand" href="#home">Web<span>Dev</span></a>
+      <p>Internship project · HTML · CSS · JavaScript</p>
+      <p>© <span id="year"></span> Web Development Project</p>
+    </div>
+  </footer>
+</body>
+</html>
